@@ -6,7 +6,7 @@ import ClientOnly from "./components/ClientOnly";
 import RegisterModal from "./components/modals/RegisterModal";
 
 export const metadata: Metadata = {
-	title: "Airbnb | Vacation rentals, cabins, beach houses, & more",
+	title: "Airbnb Clone | Next.js & TailwindCSS",
 	description: "An Airbnb clone built with Next.js & TailwindCSS by Greg Sithole",
 };
 
