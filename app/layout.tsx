@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
+import ClientOnly from "./components/ClientOnly";
+import RegisterModal from "./components/modals/RegisterModal";
 
 export const metadata: Metadata = {
-	title: "Airbnb",
-	description: "An Airbnb clone built with Next.js by Greg Sithole",
+	title: "Airbnb | Vacation rentals, cabins, beach houses, & more",
+	description: "An Airbnb clone built with Next.js & TailwindCSS by Greg Sithole",
 };
 
 const font = Nunito({
@@ -18,7 +20,10 @@ export default function RootLayout({ children }: Readonly<{
 	return (
 		<html lang="en">
 			<body className={font.className}>
-				<Navbar />
+				<ClientOnly>
+					<RegisterModal />
+					<Navbar />
+				</ClientOnly>
 				{children}
 			</body>
 		</html>
