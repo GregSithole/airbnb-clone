@@ -8,6 +8,9 @@ import RegisterModal from "./components/modals/RegisterModal";
 export const metadata: Metadata = {
 	title: "Airbnb Clone | Next.js & TailwindCSS",
 	description: "An Airbnb clone built with Next.js & TailwindCSS by Greg Sithole",
+	verification: {
+		google: process.env.NEXT_GOOGLE_SITE_VERIFICATION,
+	}
 };
 
 const font = Nunito({
@@ -19,6 +22,7 @@ export default function RootLayout({ children }: Readonly<{
 }>) {
 	return (
 		<html lang="en">
+			<meta name="google-site-verification" content="rDWv0xfIKAwr_Ze9m926uCafvUvFE6MsPwIrxzm2cnI" />
 			<body className={font.className}>
 				<ClientOnly>
 					<RegisterModal />
