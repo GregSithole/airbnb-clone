@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import ClientOnly from "./components/ClientOnly";
 import RegisterModal from "./components/modals/RegisterModal";
+import ToasterProvider from "./providers/ToasterProvider";
 
 export const metadata: Metadata = {
 	title: "Airbnb Clone | Next.js & TailwindCSS",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: Readonly<{
 			<meta name="google-site-verification" content="rDWv0xfIKAwr_Ze9m926uCafvUvFE6MsPwIrxzm2cnI" />
 			<body className={font.className}>
 				<ClientOnly>
+					<ToasterProvider />
 					<RegisterModal />
 					<Navbar />
 				</ClientOnly>
