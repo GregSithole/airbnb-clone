@@ -4,7 +4,9 @@ import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import ClientOnly from "./components/ClientOnly";
 import RegisterModal from "./components/modals/RegisterModal";
+import LoginModal from "./components/modals/LoginModal";
 import ToasterProvider from "./providers/ToasterProvider";
+import getCurrentUser from "./actions/getCurrentUser";
 
 export const metadata: Metadata = {
 	title: "Airbnb Clone | Next.js & TailwindCSS",
@@ -18,9 +20,10 @@ const font = Nunito({
 	subsets: ["latin"],
 })
 
-export default function RootLayout({ children }: Readonly<{
+export default async function RootLayout({ children }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const currentUser = await getCurrentUser();
 	return (
 		<html lang="en">
 			<meta name="google-site-verification" content="rDWv0xfIKAwr_Ze9m926uCafvUvFE6MsPwIrxzm2cnI" />
@@ -28,7 +31,8 @@ export default function RootLayout({ children }: Readonly<{
 				<ClientOnly>
 					<ToasterProvider />
 					<RegisterModal />
-					<Navbar />
+					<LoginModal />
+					<Navbar currentUser={currentUser} />
 				</ClientOnly>
 				{children}
 			</body>
