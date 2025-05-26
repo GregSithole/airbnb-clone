@@ -7,6 +7,7 @@ import RegisterModal from "./components/modals/RegisterModal";
 import LoginModal from "./components/modals/LoginModal";
 import ToasterProvider from "./providers/ToasterProvider";
 import getCurrentUser from "./actions/getCurrentUser";
+import RentModal from "./components/modals/RentModal";
 
 export const metadata: Metadata = {
 	title: "Airbnb Clone | Next.js & TailwindCSS",
@@ -32,6 +33,7 @@ export default async function RootLayout({ children }: Readonly<{
 					<ToasterProvider />
 					<RegisterModal />
 					<LoginModal />
+					<RentModal />
 					<Navbar currentUser={currentUser} />
 				</ClientOnly>
 				{children}
