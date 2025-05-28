@@ -19,7 +19,6 @@ export const metadata: Metadata = {
 
 const font = Nunito({
 	subsets: ["latin"],
-	fallback: ['Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', 'sans-serif']
 })
 
 export default async function RootLayout({ children }: Readonly<{
