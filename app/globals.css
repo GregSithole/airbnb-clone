@@ -8,9 +8,10 @@ body,
   height: 100%;
 }
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+body.nunito {
+  font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji",
+    sans-serif;
 }
 
 .leaflet-bottom,
