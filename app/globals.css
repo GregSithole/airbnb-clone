@@ -8,6 +8,11 @@ body,
   height: 100%;
 }
 
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+
 .leaflet-bottom,
 .leaflet-control,
 .leaflet-pane,
