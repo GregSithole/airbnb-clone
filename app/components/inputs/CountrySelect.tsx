@@ -1,8 +1,9 @@
 'use client'
 
 import useCountries from '@/app/hooks/useCountries';
+import { useEffect, useState } from 'react';
 import Select from 'react-select';
-import ReactCountryFlag from 'react-country-flag';
+import Twemoji from 'react-twemoji';
 
 export type CountrySelectValue = {
 	flag: string;
@@ -20,6 +21,13 @@ interface CountrySelectProps {
 const CountrySelect: React.FC<CountrySelectProps> = ({ value, onChange }) => {
 
 	const { getAll } = useCountries();
+	const [isWindows, setIsWindows] = useState(false);
+
+	useEffect(() => {
+		// Check if the platform is Windows
+		const platform = window.navigator.platform.toLowerCase();
+		setIsWindows(platform.includes('win'));
+	}, []);
 
 	return (
 		<div>
@@ -31,7 +39,15 @@ const CountrySelect: React.FC<CountrySelectProps> = ({ value, onChange }) => {
 				onChange={(value) => onChange?.(value as CountrySelectValue)}
 				formatOptionLabel={(option: CountrySelectValue) => (
 					<div className="flex flex-row items-center gap-3">
-						<ReactCountryFlag className="w-[1em] h-[1em]" countryCode={option.value} svg aria-label={option.label} />
+						{isWindows ? (
+							<div className='w-[1em] h-[1em]'>
+								<Twemoji>
+									{option.flag}
+								</Twemoji>
+							</div>
+						) : (
+							<div>{option.flag}</div>
+						)}
 						<div>{option.label}, <span className='text-neutral-500 ml-1'>{option.region}</span></div>
 					</div>
 				)}
