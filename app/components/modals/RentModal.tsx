@@ -52,6 +52,9 @@ const RentModal = () => {
 	const roomCount = watch('roomCount');
 	const bathroomCount = watch('bathroomCount');
 	const imageSrc = watch('imageSrc');
+	const price = watch('price');
+	const title = watch('title');
+	const description = watch('description');
 
 	const Map = useMemo(() => dynamic(() => import('../Map'), {
 		ssr: false
@@ -167,7 +170,9 @@ const RentModal = () => {
 					disabled={isLoading}
 					register={register}
 					errors={errors}
+					type='text'
 					required
+					value={title}
 				/>
 				<hr />
 				<Input
@@ -177,6 +182,7 @@ const RentModal = () => {
 					register={register}
 					errors={errors}
 					required
+					value={description}
 				/>
 			</div>
 		);
@@ -195,6 +201,7 @@ const RentModal = () => {
 					register={register}
 					errors={errors}
 					required
+					value={price}
 				/>
 			</div>
 		);
